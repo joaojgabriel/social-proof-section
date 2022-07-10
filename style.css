@@ -31,7 +31,8 @@ body {
   line-height: 1.5;
   font-size: 1.5rem;
   font-family: "League Spartan", sans-serif;
-  /* background: hsl(300, 24%, 96%); */
+  background: url(images/bg-pattern-bottom-desktop.svg) no-repeat bottom right,
+    url(images/bg-pattern-top-desktop.svg) no-repeat top left;
 }
 
 /* Make images easier to work with */
@@ -53,9 +54,10 @@ img {
   }
 }
 
-header,
 main {
   width: 87.2%;
+  min-height: 100vh;
+  
 }
 
 h1,
@@ -79,7 +81,15 @@ p {
   font-weight: 400;
 }
 
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 52.5rem;
+}
+
 .ratings {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,7 +105,46 @@ p {
   align-items: center;
   background: hsl(300, 24%, 96%);
   width: 100%;
+  align-self: stretch;
   border-radius: 10px;
+}
+
+@media screen and (min-width: 680px) {
+  .hero {
+    flex-direction: row;
+    min-height: 50%;
+    margin: 8rem auto;
+  }
+
+  .header > * {
+    text-align: left;
+    margin: 0;
+  }
+
+  .header h1 {
+    font-size: 3.5em;
+  }
+
+  .header p {
+    font-size: 1.5em;
+  }
+
+  .rating {
+    max-width: 52.5rem;
+    margin: 0;
+  }
+
+  .rating:first-child {
+    align-self: flex-start;
+  }
+
+  .rating:nth-child(2) {
+    align-self: center;
+  }
+
+  .rating:last-child {
+    align-self: flex-end;
+  }
 }
 
 .rating .stars {
@@ -108,16 +157,39 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   min-height: 82.4rem;
   margin-top: 3.2rem;
 }
+
 .testimonial {
   flex: 0 1 24.8rem;
-  width: 100%;
+  max-width: 40rem;
+  margin: 0;
   background: hsl(300, 43%, 22%);
   padding: 4.2rem 3.2rem 1.6rem;
   border-radius: 10px;
   color: white;
+}
+
+@media screen and (min-width: 1440px) {
+  .testimonials {
+    flex-direction: row;
+    min-height: 40rem;
+  }
+
+  .testimonial {
+    flex: 0 1 40rem;
+  }
+}
+
+/* First: Left; Second: Center; Third: Right */
+.testimonial:first-child {
+  align-self: flex-start;
+}
+
+.testimonial:last-child {
+  align-self: flex-end;
 }
 
 .person {
